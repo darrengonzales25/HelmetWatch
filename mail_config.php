@@ -6,9 +6,9 @@
 return [
     'host'         => 'smtp.gmail.com',
     'port'         => 587,
-    'username'     => 'dagonzales@ccc.edu.ph',
-    'app_password' => 'sfpq bizc gxrr vtdw',
-    'from_email'   => 'dagonzales@ccc.edu.ph',   // must be the same as username
+    'username'     => 'YOUR_EMAIL',
+    'app_password' => 'xxxx xxxx xxxx xxxx',
+    'from_email'   => 'YOUR_EMAIL',   // must be the same as username
     'from_name'    => 'HelmetWatch Verification',
 
     // true  = do NOT send mail; write the code to mail_outbox.log (for testing only)
