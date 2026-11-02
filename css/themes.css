@@ -1,0 +1,100 @@
+/* ============================================================
+   HelmetWatch — THEMES (colors only)
+   The page picks one with <html data-theme="indigo|light|teal">.
+   To add a theme: copy a block, change the values, then add it to THEMES in theme.php.
+   ============================================================ */
+
+/* 1. Midnight Indigo — dark */
+:root, [data-theme="indigo"] {
+  --bg: #131a2c;
+  --sidebar-bg: #1c2340;
+  --surface: #1c2340;
+  --surface2: #19203d;
+  --surface3: #232c52;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.14);
+  --text: #e9edfa;
+  --text2: #a3aed0;
+  --text3: #6f7ba1;
+  --accent: #8da2ff;
+  --accent-ink: #131a2c;
+  --accent-soft: #27335b;
+  --red: #ff8b8b;
+  --red-solid: #e0525d;
+  --red-dim: #3b2a3a;
+  --green: #5fd3a0;
+  --green-dim: rgba(95,211,160,0.16);
+  --amber: #f4b266;
+  --shadow: 0 8px 30px rgba(0,0,0,0.25);
+  --video-bg: #0b0f1d;
+  color-scheme: dark;
+}
+
+/* 2. Clean Light — light, side navigation */
+[data-theme="light"] {
+  --bg: #e4e9ef;
+  --sidebar-bg: #ffffff;
+  --surface: #ffffff;
+  --surface2: #f3f6fb;
+  --surface3: #e9eef4;
+  --border: rgba(20,40,70,0.08);
+  --border2: rgba(20,40,70,0.16);
+  --text: #1c2b3d;
+  --text2: #5b6b7c;
+  --text3: #8795a5;
+  --accent: #2e6fa7;
+  --accent-ink: #ffffff;
+  --accent-soft: #cdddea;
+  --red: #c7524f;
+  --red-solid: #d4504c;
+  --red-dim: #fceae8;
+  --green: #2e8b6f;
+  --green-dim: #d4efe6;
+  --amber: #b9741f;
+  --shadow: 0 6px 24px rgba(30,60,100,0.08);
+  --video-bg: #1b2430;
+  color-scheme: light;
+}
+
+/* 3. Deep Teal — dark, side navigation */
+[data-theme="teal"] {
+  --bg: #0e1822;
+  --sidebar-bg: #0a131a;
+  --surface: #15212d;
+  --surface2: #1a2835;
+  --surface3: #1f2f3d;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.14);
+  --text: #e8f0f4;
+  --text2: #9fb1bd;
+  --text3: #667a89;
+  --accent: #5bb5ac;
+  --accent-ink: #08201e;
+  --accent-soft: #1b3a3f;
+  --red: #ef8c8e;
+  --red-solid: #d9575c;
+  --red-dim: #39242b;
+  --green: #5bb5ac;
+  --green-dim: rgba(91,181,172,0.16);
+  --amber: #f0b46a;
+  --shadow: 0 8px 30px rgba(0,0,0,0.3);
+  --video-bg: #07131f;
+  color-scheme: dark;
+}
+
+/* Shared (all themes) */
+:root {
+  --font: 'Lato', 'Segoe UI', system-ui, sans-serif;
+  --font-head: var(--font);
+  --font-body: var(--font);
+  --font-mono: var(--font);
+  --cyan: var(--accent);            /* old name still used by some inline styles */
+  --radius: 20px;
+}
+
+/* Text size (Settings > Text size). Every font size in the UI is in rem, so this scales everything. */
+html { font-size: 16px; }
+html[data-font="small"]  { font-size: 14px; }
+html[data-font="medium"] { font-size: 16px; }
+html[data-font="large"]  { font-size: 18px; }
+html[data-font="xlarge"] { font-size: 20px; }
