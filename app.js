@@ -682,8 +682,6 @@ function overlapArea(a, b) {
   return w > 0 && h > 0 ? w * h : 0;
 }
 
-const REFINE_DEBUG = true;
-let _refineLogAt = 0;
 const INNER_OVERLAP = 0.8;
 const BODY_TO_HEAD_RATIO = 0.6;
 const DUPLICATE_OVERLAP = 0.7;
@@ -692,8 +690,8 @@ const HELMET_WIN_MARGIN = 0.15;
 const VIOLATION_ALWAYS_KEEP = 0.6;
 const WRONG_HELMET_RELABEL = true;
 const SHOW_WEAK_VIOLATIONS = false;
-const WRONG_HELMET_SAME_SIZE = 0.5;
-const WRONG_HELMET_SAME_OVERLAP = 0.7;
+const WRONG_HELMET_SAME_SIZE = 0.35;
+const WRONG_HELMET_SAME_OVERLAP = 0.45;
 const WRONG_HELMET_MAX_RATIO = 0.65;
 const WRONG_HELMET_INSIDE = 0.35;
 const WRONG_HELMET_TOP_PART = 0.5;
@@ -761,17 +759,6 @@ function refineDetections(dets) {
         return Object.assign({}, d, { classId: SUBSTANDARD_ID, className: LABELS[SUBSTANDARD_ID] });
       });
       kept = kept.filter(d => !drop.has(d));
-    }
-  }
-
-  if (REFINE_DEBUG && Date.now() - _refineLogAt > 2000) {
-    const nh = kept.find(d => d.classId === LABELS.indexOf('No-Helmet') && d.score >= CAPTURE_MIN_SCORE);
-    if (nh) {
-      _refineLogAt = Date.now();
-      const near = kept
-        .filter(h => !VIOLATION_IDS.includes(h.classId) && overlapArea(nh, h) > 0)
-        .map(h => `Helmet ${Math.round(h.score * 100)}% size ${(boxArea(h) / boxArea(nh)).toFixed(2)} overlap ${(overlapArea(nh, h) / Math.min(boxArea(h), boxArea(nh))).toFixed(2)}`);
-      logEvent(`[v7] No-Helmet ${Math.round(nh.score * 100)}% | ${near.length ? near.join(' ; ') : 'no helmet box overlaps'}`, '');
     }
   }
 
